@@ -1,14 +1,17 @@
-beachfront-io-javascript-SDK
-============================
+## JavaScript SDK for Beachfront.iO
 
-JavaScript SDK for Beachfront.iO
+## Overview
+This document details the process of integrating the Beachfront.iO Javascript AD SDK into an HTML5 Web Page.
+
+
+## Integration Steps
 
 1. Include js library, it can be included in page header or directly inside page.
 
 ```
 <script type="text/javascript" src="http://beachfront.io/preroll/bfio_preroll_3_min.js"></script>
 ```
-or 
+or
 
 ```
 <script type="text/javascript">
@@ -16,9 +19,8 @@ or
 </script>
 ```
 
-2. Put a DIV container inside page. Video Ad will be played inside this container, video ad will have the same  sizes like a DIV container
-
-'video': require container with <video> tag. 
+2. Put a DIV container inside page. 
+Video Ad will be played inside this container, video will scale to the same size of the DIV.
 
 for example:
 
@@ -51,9 +53,7 @@ for example:
 <div id="preroll3" style="position:relative; display:block; width:320px; height: 200px;"></div>
 ```
 
-Step 4:  
-
-Init ad unit.
+3. Init ad unit.
 
 For each ad unit container you should define an object.
 
@@ -80,9 +80,9 @@ preroll4.Preroll('preroll4', preroll4_params);
 
 To start preroll from code you can call preroll4.PrerollStart() method.
 
-Step 5:
+4. Add any event handlers you require:
 
-Add any event handlers you require:
+##Available Events
 
 AdPreRollInitialized  - ad unit is ready to use (all even't applied and ready)
 
