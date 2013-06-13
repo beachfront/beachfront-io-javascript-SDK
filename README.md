@@ -24,7 +24,8 @@ Video Ad will be played inside this container, video will scale to the same size
 
 Step 3. Select Ad Player Mode ( video, link, action, banner ):
 
-Mode: 'video' : requires a HTML5 Video tag inside Div.
+Mode: 'video' : This is standard Pre-roll behavior. Video content will be started after Ad playback.
+Requires a HTML5 Video tag inside Div.
 
 ```
 <div style="position:relative;display:block;width:320px; height: 240px; top: 0px; left:0px;" id="preroll1">
