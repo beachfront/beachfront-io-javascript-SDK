@@ -34,7 +34,7 @@ Mode: 'video' : requires a HTML5 Video tag inside Div.
 </div>
 ```
 
-Mode: 'link': requires container with <a> tag. 
+Mode: 'link': requires container with ```<a>``` tag. 
 
 for example:
 ```
