@@ -4,10 +4,10 @@
 This document details the process of integrating the Beachfront.iO Javascript AD SDK into an HTML5 Web Page.
 
 ## Requirements  ##
-Javascript SDK can be used on mobile browsers with HTML5 video element support.
+The javascript SDK can be used on mobile browsers with HTML5 video element support.
 
 ## Getting Started  ##
-1.  Include JavaScript SDK library on yours html page.
+1.  Include the JavaScript SDK library in your html page.
     It can be included in page `<head>` tag
     ``` html
     <!DOCTYPE html>
@@ -36,11 +36,11 @@ Javascript SDK can be used on mobile browsers with HTML5 video element support.
     </html>
     ```
 
-2. Put a `<div>` container inside page. Video Ad will be played inside this container.
+2. Put a `<div>` container inside your page. Video Ad will be played inside this container.
 
 ## Operations  ##
 In order to call the SDK methods, you must first get a reference to the bfiomobileweb object you wish to control.
-Be shure that you are using separate bfiomobileweb instance for each Ad container.
+Be sure that you are using a separate bfiomobileweb instance for each Ad container.
 
 ```var bfio_ad = new bfiomobileweb();```
 
@@ -48,8 +48,8 @@ Be shure that you are using separate bfiomobileweb instance for each Ad containe
 The following subsections list the functions that the JavaScript SDK supports.
 
 ### Ad ###
-This method can be used for common cases. After execution, div container will be filled with Ad.
-After Ad video complete, div container content will be removed.
+This method can be used for common cases. After execution, div container will be filled with an Ad.
+After the Ad video completes, the div container content will be removed.
 ```html
 var div_container = document.getElementById('div_container);
 var ad_params = {
@@ -78,12 +78,12 @@ reference to an Element object or Element ID.
 * `poster` - (optional) video thumb url.
 
 ### AdStart ###
-In case if video can't be autoplayed or autoplay is false, it's possible to start ad video play with this method
+In case the video can't be autoplayed or autoplay is false, it's possible to start playing the ad video with this method
 ```html
 bfio_ad.AdStart();
 ```
 ### AdRemove ###
-Cleanup div container content. Usually div container content removed automatically.
+Cleanup div container content. Usually div container content is removed automatically.
 
 ```html
 bfio_ad.AdRemove();
@@ -108,7 +108,7 @@ reference to an Element object or Element ID.
 * `poster` - (optional) video thumb url.
 
 ###PrerollStart ###
-In case if video can't be autoplayed or autoplay is false, it's possible to start ad video play with this method
+In case video can't be autoplayed or autoplay is false, it's possible to start playing ad video with this method
 ```html
 bfio_ad.PrerollStart();
 ```
@@ -161,7 +161,7 @@ The 'AdVideoComplete' event will be fired when 100% of the video is completed.
 The 'AdError' event will be fired when ad fails to load or encounters an error. 
 
 ###AdRemainingTimeChange
-The 'AdRemainingTimeChange' event will be fired when fires 'timeupdate' event of the HTML5 video element . 
+The 'AdRemainingTimeChange' event will be fired when the 'timeupdate' event of the HTML5 video element is triggered. 
 
 ###AdVideoReadyToPlay
 The 'AdVideoReadyToPlay' event will be fired after 'canplay' or 'canplaythrough' event of the HTML5 video element. 
