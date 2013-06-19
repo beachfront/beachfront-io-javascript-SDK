@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>BeachFront.io JS SDK Examples</title>
+    <script type="text/javascript" src="http://beachfront.io/preroll/bfio_ad_min.js"></script>
+</head>
+<body style="margin:0px">
+<h2>On demand preroll Ad example</h2>
+<div id="action_preroll" style="position:relative; display:block; width:320px; height: 200px;"></div>
+<input type="button" value="Click To Play" id="video_play">
+<script type="text/javascript">
+    document.write('<script language="JavaScript" src="http://beachfront.io/preroll/bfio_ad_min.js" type="text/javascript"><\/scr' + 'ipt>');
+</script>
+<script type="text/javascript">
+    var action_preroll = new bfiomobileweb();
+    if ( action_preroll) {
+        var preroll_params = {
+            app_id:'e04fd6b0-4eb2-4dc8-b8d3-accfb7cf8043',
+            ad_init_id:'622834c9-3b52-4114-a531-a4bf494230ba',
+            preroll_mode:'action',
+            callback: function(){alert('callback action');}
+        }
+        action_preroll.Preroll('action_preroll', preroll_params);
+        document.getElementById('video_play').addEventListener('click', action_preroll.PrerollStart);
+    }
+</script>
+</body>
+</html>
