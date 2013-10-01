@@ -76,6 +76,7 @@ reference to an Element object or Element ID.
 * `overlay_width` - (optional) by default will be autodetected
 * `overlay_height` - (optional) by default will be autodetected.
 * `poster` - (optional) video thumb url.
+* `zipcode` - (optional) users zipcode.
 
 ### AdStart ###
 In case the video can't be autoplayed or autoplay is false, it's possible to start playing the ad video with this method
