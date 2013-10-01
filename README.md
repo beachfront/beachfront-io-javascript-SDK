@@ -107,6 +107,7 @@ reference to an Element object or Element ID.
 * `overlay_height` - (optional) by default will be autodetected.
 * `callback` - (optional) callback function for preroll_mode = 'action'. Fires when ad complete. For the rest preroll_mode is not required.
 * `poster` - (optional) video thumb url.
+* `zipcode` - (optional) users zipcode.
 
 ###PrerollStart ###
 In case video can't be autoplayed or autoplay is false, it's possible to start playing ad video with this method
