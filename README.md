@@ -56,7 +56,6 @@ var ad_params = {
     app_id:'e04fd6b0-4eb2-4dc8-b8d3-accfb7cf8043',
     ad_init_id:'622834c9-3b52-4114-a531-a4bf494230ba',
     autoplay: true,
-    volume: 0.5,
     overlay_class: 'ad_overlay',
     overlay_width: '320px',
     overlay_height: '200px',
@@ -71,7 +70,6 @@ reference to an Element object or Element ID.
 * `app_id` - (mandatory) beachfront.io app id. 
 * `ad_init_id` - (mandatory) beachfront.io ad unit id.
 * `autoplay` - (optional) ad unit autoplay (true/false), by default is true .
-* `volume` -  (optional) ad volume (0 - 1.0), by default is 0.5
 * `overlay_class` - (optional) CSS class name for overlay div, by default {position:absolute;background:black;display:block;top:0px;left:0px}.
 * `overlay_width` - (optional) by default will be autodetected
 * `overlay_height` - (optional) by default will be autodetected.
@@ -101,7 +99,6 @@ reference to an Element object or Element ID.
 * `ad_init_id` - (mandatory) beachfront.io ad unit id.
 * `preroll_mode` - (mandatory) depends on container div content ('video', 'link', 'action').
 * `autoplay` - (optional) ad unit autoplay (true/false), by default is true .
-* `volume` -  (optional) ad volume (0 - 1.0), by default is 0.5
 * `overlay_class` - (optional) CSS class name for overlay div, by default {position:absolute;background:black;display:block;top:0px;left:0px}.
 * `overlay_width` - (optional) by default will be autodetected
 * `overlay_height` - (optional) by default will be autodetected.
@@ -183,7 +180,6 @@ The 'AdVideoReadyToPlay' event will be fired after 'canplay' or 'canplaythrough'
             app_id:'e04fd6b0-4eb2-4dc8-b8d3-accfb7cf8043',
             ad_init_id:'622834c9-3b52-4114-a531-a4bf494230ba',
             autoplay: true,
-            volume: 0.5,
             poster: 'http://images.mefeedia.com/entries/66256474/video_250.png',
             overlay_width: '320px',
             overlay_height: '200px'
@@ -237,8 +233,7 @@ The 'AdVideoReadyToPlay' event will be fired after 'canplay' or 'canplaythrough'
             app_id:'e04fd6b0-4eb2-4dc8-b8d3-accfb7cf8043',
             ad_init_id:'622834c9-3b52-4114-a531-a4bf494230ba',
             preroll_mode:'video',
-            autoplay: true,
-            volume: 0.5
+            autoplay: true
         }
         video_preroll.Preroll('video_preroll', preroll_params);
         document.getElementById('video_play').addEventListener('click', video_preroll.PrerollStart);
