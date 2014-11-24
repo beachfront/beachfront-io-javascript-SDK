@@ -3,34 +3,51 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>BeachFront.io JS SDK Examples</title>
-    <script type="text/javascript" src="http://beachfront.io/preroll/bfio_ad_min.js"></script>
+    <script type="text/javascript" src="http://platform.beachfront.io/bfio_ad.min.js"></script>-->
 </head>
-<body style="margin:0px">
+<body style="margin:0px;">
 <h2>Basic Ad example</h2>
-<div style="position:relative;display:block;width:320px; height: 200px; top: 0px; left:0px;" id="video_ad"></div>
+<div id="video_ad"></div>
 <input type="button" value="Start Ad" id="start_ad">
 <script type="text/javascript">
-    document.write('<script language="JavaScript" src="http://beachfront.io/preroll/bfio_ad_min.js" type="text/javascript"><\/scr' + 'ipt>');
-</script>
-<script type="text/javascript">
-    var video_ad = new bfiomobileweb();
+    var video_ad = new bfiomobileweb(), ad_playing = false;
     if (video_ad) {
         var ad_params = {
-            app_id:'e04fd6b0-4eb2-4dc8-b8d3-accfb7cf8043',
-            ad_init_id:'622834c9-3b52-4114-a531-a4bf494230ba',
-            autoplay: true,
-            poster: 'http://images.mefeedia.com/entries/66256474/video_250.png',
-            overlay_width: '320px',
-            overlay_height: '200px'
-        }
+                    app_id:'6332602c-2423-477a-cff7-2022e89426aa',
+                    ad_init_id:'2ca35c9c-0152-425e-cae0-6f399f96a032',
+                    autoplay: true,
+                    poster: 'http://images.mefeedia.com/entries/66256474/video_250.png',
+                    overlay_width: '320px',
+                    overlay_height: '200px'
+                },
+                adComplete = function(){
+                    ad_playing = false;
+                    video_ad.AdRemove();
+                },
+                adNoFill = function(){
+                    ad_playing = false;
+                    video_ad.AdRemove();
+                },
+                play_ad = function(){
+                    if (ad_playing) {
+                        video_ad.AdRemove();
+                    }
+                    video_ad.Ad('video_ad', ad_params);
+                    video_ad.AdStart();
+                };
+
         video_ad.addListener('AdInitialized', function(arg){
             // event fires when Ad is available and all container div elements and events were initialized
             // arg = {type: 'event name',
             //        overlay: 'reference to an overlay div object',
             //        video_ad: 'reference to video object'};
+            ad_playing = true;
         });
         video_ad.addListener('AdVideoReadyToPlay', function(){
             // event fires when Ad Video  is ready to play
+        });
+        video_ad.addListener('AdPlaying', function(){
+            // event fires when Ad Video is playing
         });
         video_ad.addListener('AdClickThru', function(){
             // event fires when the click-through html is clicked
@@ -41,15 +58,21 @@
         });
         video_ad.addListener('AdVideoComplete', function(){
             // event fires when the Ad video is completed, in some cases this event will fired when video can't play
+            video_ad.AdRemove();
+            /*
+             Do whatever you want to do after Pre Roll Ad.
+             */
+            adComplete();
         });
         video_ad.addListener('AdError', function(errorInfo){
             // arg = {errorCode: 'error code',
             //        errorMsg: 'error description'};
+            adNoFill();
         });
 
-
         video_ad.Ad('video_ad', ad_params);
-        document.getElementById('start_ad').addEventListener('click', video_ad.AdStart);
+
+        document.getElementById('start_ad').addEventListener('click', play_ad);
     }
 </script>
 </body>
